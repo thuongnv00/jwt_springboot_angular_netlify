@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         this.status = 'Username already exists. Please try again !'
       }
       if(JSON.stringify(data)== JSON.stringify(this.error2)) {
-        this.status = 'Username already exists. Please try again !';
+        this.status = 'Email already exists. Please try again !';
       }
       if(JSON.stringify(data)== JSON.stringify(this.success)) {
         this.status = 'Create user success. Please login !';
