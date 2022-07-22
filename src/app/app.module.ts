@@ -11,15 +11,18 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import { LoginComponent } from './form-login/login/login.component';
+import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
-  {path:'register',component: RegisterComponent}
-]
-
+  {path:'register',component: RegisterComponent,data:{title:"Register"}},
+  {path:'login',component: LoginComponent, data:{title: "Login"}}
+  ]
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -32,7 +35,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

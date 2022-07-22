@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 50px 0">
+        <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+          <mat-error class="alert alert-primary">{{status}}</mat-error>
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>Userame...</mat-label>
+            <input matInput placeholder="Placeholder" name="username" [(ngModel)]="form.username" #username="ngModel" required minlength="3" maxlength="50">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-error *ngIf="username.errors && username.errors['required']">Name is required</mat-error>
+            <mat-error *ngIf="username.errors && username.errors['minlength']">At least 3 characters</mat-error>
+          </mat-form-field><br>
+          <!--password-->
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" name = "password" [(ngModel)]="form.password" #password = "ngModel" required maxlength="100" minlength="6">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.errors && password.errors['required']">Password is required</mat-error>
+            <mat-error *ngIf="password.errors && password.errors['minlength']">Password at least 6 characters </mat-error>
+          </mat-form-field><br>
+          <!--submit button-->
+          <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Register
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
