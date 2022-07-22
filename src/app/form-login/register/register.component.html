@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 20px 0">
+          <form class="form-register" #contactForm="ngForm" (ngSubmit)="contactForm.form.valid && ngSubmit()" novalidate>
+            <mat-error class="alert alert-primary">{{status}}</mat-error>
+            <!-- name-->
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Name...</mat-label>
+              <input matInput placeholder="Placeholder" name="name" [(ngModel)]="form.name" #name="ngModel" required minlength="3" maxlength="50">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="name.errors && name.errors['required']">Name is required</mat-error>
+              <mat-error *ngIf="name.errors && name.errors['minlength']">At least 3 characters</mat-error>
+            </mat-form-field><br>
+            <!--username-->
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Username ...</mat-label>
+              <input matInput placeholder="Placeholder" name="username" [(ngModel)]="form.username"  #username= "ngModel" required minlength="3" maxlength="50">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-error *ngIf="username.errors && username.errors['required']">Userame is required</mat-error>
+              <mat-error *ngIf="username.errors && username.errors['minlength']">At least 3 characters</mat-error>
+            </mat-form-field><br>
+
+            <!--email-->
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Email ...</mat-label>
+              <input matInput placeholder="Placeholder" name="email" [(ngModel)]="form.email" [formControl]="emailFormControl" required>
+              <mat-error *ngIf="emailFormControl.errors && emailFormControl.errors['required']">Email is required</mat-error>
+              <mat-error *ngIf="emailFormControl.errors && emailFormControl.errors['email']">Email is invalid !</mat-error>
+            </mat-form-field><br>
+
+          <!--password-->
+            <mat-form-field style="width: 350px" appearance="outline">
+              <mat-label>Enter your password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" name = "password" [(ngModel)]="form.password" #password = "ngModel" required maxlength="100" minlength="6">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="password.errors && password.errors['required']">Password is required</mat-error>
+              <mat-error *ngIf="password.errors && password.errors['minlength']">Password at least 6 characters </mat-error>
+            </mat-form-field><br>
+            <!--submit button-->
+            <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Register
+            </button>
+
+          </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<form #contactForm="ngForm" (ngSubmit)="contactForm.form.valid" novalidate>-->
+
+<!--  <div class="form-group">-->
+<!--    <label for="firstName">First Name</label>-->
+<!--    <input required minlength="3" maxlength="10" ngModel name="firstName" type="text" #firstName="ngModel" class="form-control" id="firstName">-->
+<!--    <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">-->
+<!--      <div *ngIf="firstName.errors && firstName.errors['required']">First Name is required.</div>-->
+<!--      <div *ngIf="firstName.errors && firstName.errors['minlength']">First Name is minimum 3 character.</div>-->
+<!--      <div *ngIf="firstName.errors && firstName.errors['maxlength']">First Name is maximum 10 character.</div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="form-group">-->
+<!--    <label for="lastName">Last Name</label>-->
+<!--    <input required ngModel name="lastName" type="text" #lastName="ngModel" class="form-control" id="lastName">-->
+<!--    <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">-->
+<!--      Last Name is required.-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <button class="btn btn-primary" type="submit" [class.disabled]="!contactForm.valid">Submit</button>-->
+
+<!--</form>-->
+
+
+
+
