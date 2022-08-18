@@ -48,8 +48,9 @@
     </div>
   </div>
 </div>
+<app-upload-avatar (giveUrlToCreate)="onChangedAvatar($event)"></app-upload-avatar>
 
-
+<app-upload-file (giveUrlToCreate)="onChangedFile($event)"></app-upload-file>
 
 <!--<form #contactForm="ngForm" (ngSubmit)="contactForm.form.valid" novalidate>-->
 

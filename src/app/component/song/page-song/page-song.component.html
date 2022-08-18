@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 20px">
+      <mat-card style="margin: 50px 0">
+        <div class="row">
+          <div class="column" *ngFor="let song of songs">
+            <div class="example-button-row">
+              <button *ngIf="isCheckAdmin" mat-flat-button color="warn" (click)="deleteSong(song.id)">Delete</button>
+            </div>
+            <div class="card">
+              <i style="color: crimson">{{song.nameSong}}</i>
+              <img style="width: 80px;" class="img " [src]="song.avatarURl">
+            </div>
+          </div>
+        </div>
+        <mat-paginator [pageSizeOptions]="[3,5,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+      </mat-card>
+    </div>
+  </div>
+</div>

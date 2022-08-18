@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="margin-top: 10px">
+      <mat-card style="margin: 50px 0px">
+        <form class="creatSong" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()">
+          <mat-error class="alert alert-primary">{{status}}</mat-error>
+
+<!--          name Song-->
+          <mat-form-field style="width: 350px" appearance="outline">
+            <mat-label>nameSong</mat-label>
+            <input matInput name = "nameSong" [(ngModel)]="form.nameSong" #nameSong = "ngModel" required>
+            <mat-error *ngIf="nameSong.errors && nameSong.errors['required']">NameSong is required</mat-error>
+          </mat-form-field><br>
+
+<!--          loi bai hat-->
+          <mat-form-field style="width: 350px" appearance="fill">
+            <mat-label>Lyrics</mat-label>
+            <textarea matInput name ="lyrics" [(ngModel)]="form.lyrics" #lyrics = "ngModel" required></textarea>
+            <mat-error *ngIf="lyrics.errors && lyrics.errors['required']">Lyrics is required</mat-error>
+          </mat-form-field><br>
+          <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Create
+          </button>
+          <app-upload-avatar (giveUrlToCreate)="onchangeAvatar($event)"></app-upload-avatar>
+          <app-upload-file (giveUrlToCreate)="onchangeFile($event)"></app-upload-file>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

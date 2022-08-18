@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment.prod";
 import {HttpClient} from "@angular/common/http";
-import {SignUpForm} from "../model/SignUpForm";
+import {SignUpForm} from "../../model/SignUpForm";
 import {Observable} from "rxjs";
-import {SignInForm} from "../model/SignInForm";
-import {JwtResponse} from "../model/JwtResponse";
+import {SignInForm} from "../../model/SignInForm";
+import {JwtResponse} from "../../model/JwtResponse";
 
 
 @Injectable({
@@ -21,4 +21,5 @@ export class AuthService {
   signIn(signIn:SignInForm): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.API_SIGNIN,signIn);
   }
+
 }

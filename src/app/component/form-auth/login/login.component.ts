@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SignInForm} from "../model/SignInForm";
-import {AuthService} from "../service/auth.service";
-import {TokenService} from "../service/token.service";
+import {SignInForm} from "../../../model/SignInForm";
+import {AuthService} from "../../../service/auth/auth.service";
+import {TokenService} from "../../../service/auth/token.service";
 
 @Component({
   selector: 'app-login',
@@ -36,11 +36,15 @@ export class LoginComponent implements OnInit {
         this.token.setName(data.name);
         this.token.setRoles(data.roles);
         // this.isLoginFailed = true;
-        this.status = 'login success'
+        this.status = 'login success';
+        window.location.href = '';
       } else {
-        this.status = 'Login Failed. Please try again'
+        this.status = 'Login Failed. Please try again';
       }
     })
   }
+
+
+
 
 }

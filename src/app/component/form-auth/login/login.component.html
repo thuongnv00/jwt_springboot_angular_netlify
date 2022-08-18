@@ -9,7 +9,7 @@
             <input matInput placeholder="Placeholder" name="username" [(ngModel)]="form.username" #username="ngModel" required minlength="3" maxlength="50">
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             <mat-error *ngIf="username.errors && username.errors['required']">Name is required</mat-error>
-            <mat-error *ngIf="username.errors && username.errors['minlength']">At least 3 characters</mat-error>
+            <mat-error *ngIf="username.errors && username.errors['minlength']">Name at least 3 characters</mat-error>
           </mat-form-field><br>
           <!--password-->
           <mat-form-field style="width: 350px" appearance="outline">
@@ -22,7 +22,7 @@
             <mat-error *ngIf="password.errors && password.errors['minlength']">Password at least 6 characters </mat-error>
           </mat-form-field><br>
           <!--submit button-->
-          <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Register
+          <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">Login
           </button>
         </form>
       </mat-card>
